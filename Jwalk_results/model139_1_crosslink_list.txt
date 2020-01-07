@@ -1,5 +1,0 @@
-Index         Model         Atom1         Atom2         SASD          Euclidean Distance
-1             model139_1.pdb LYS-80-A-CA   SER-86-A-CA   22.701198634782287 17.745221441278215
-2             model139_1.pdb LYS-74-A-CA   LYS-81-A-CA   7.16227766016838 7.226070993285354
-3             model139_1.pdb LYS-74-A-CA   SER-86-A-CA   25.07853051194779 15.389046136781838
-4             model139_1.pdb LYS-48-A-CA   LYS-81-A-CA   22.20021533443694 19.747516932515843
