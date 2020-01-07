@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: XLM-Tools
+Version: 1.0
+Summary: Crosslink Modelling Tools (XLM-Tools): a combined tool to score model protein structures using crosslinks an monolinks.
+Home-page: https://github.com/Topf-Lab/XLM-Tools
+Author: Matthew James Sinnott, Joshua Matthew Allen Bullock, Konstantinos Thalassinos, Maya Topf
+Author-email: msinno01@mail.bbk.ac.uk
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: GNU :: GPLv3.0
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
