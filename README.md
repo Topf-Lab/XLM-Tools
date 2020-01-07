@@ -87,9 +87,9 @@ Biopython
 ## Authors
 
 * **Matthew James Sinnott**
-* **Joshua Matthew Allen Bullock**
-* **Konstantinos Thalassinos**
-* **Maya Topf**
+* **Dr Joshua Matthew Allen Bullock**
+* **Prof. Konstantinos Thalassinos**
+* **Prof. Maya Topf**
 
 ## License
 
@@ -104,6 +104,6 @@ citation
 
 ## Acknowledgments
 
-* ***Dr David Holdershaw**
+* **Dr David Holdershaw**
 * **Dr Sony Malhotra**
 * **Dr Mark Williams**
