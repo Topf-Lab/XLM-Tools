@@ -87,7 +87,7 @@ Numpy
 
 Biopython
 
-DEPTH - Install from [http://cospi.iiserpune.ac.in/depth/htdocs/download.html](http://cospi.iiserpune.ac.in/depth/htdocs/download.html){:target="_blank"}. Either set up an alias named "DEPTH" to the program or specify the path to your source using the -depth_source flag. Note: may not work on all OS, see website for details.
+DEPTH - Install from [http://cospi.iiserpune.ac.in/depth/htdocs/download.html](http://cospi.iiserpune.ac.in/depth/htdocs/download.html). Either set up an alias named "DEPTH" to the program or specify the path to your source using the -depth_source flag. Note: may not work on all OS, see website for details.
 
 ## Authors
 
