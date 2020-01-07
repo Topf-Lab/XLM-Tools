@@ -26,37 +26,55 @@ optional arguments:
 
 XLM Arguments:
   -xl_list XL_LIST      input list of crosslinks and monolinks
+
   -jwalk_files [JWALK_FILES [JWALK_FILES ...]]
                         jwalk files for MNXL scoring
+
   -depth_files DEPTH_FILES [DEPTH_FILES ...]
                         depth files for MoDS scoring
+
   -outfile_name OUTFILE_NAME
                         specify output file name
+
   -sep SEP              separator in output file, default is tab
+
   -pdb PDB [PDB ...]    specify pdb files for Jwalk/Depth run
 
 Jwalk Arguments:
+
   -jwalk                flag to use if starting from .pdb files and running
                         Jwalk
+
   -vox VOX              specify voxel size of grid
+
   -surface              use higher accuracy method to calculate solvent
                         accessibility - requires Freesasa installation
+
   -ncpus NCPUS          specify number of cpus to use
 
 Depth Arguments:
+
   -depth                flag to use if starting from .pdb files and running
                         Jwalk
+
   -depth_source DEPTH_SOURCE
                         specify depth source
+
 
 The only required argument is -xl_list, this contains the crosslinks and monolinks which the model structures are scored against. The file is structured as below:
 
 aa1|c1|aa2|c2 <- Crosslink
+
 aa1|c1|aa2|c2
+
 aa1|c1|aa2|c2
+
 aa1|c1|aa2|c2
+
 aa1|c1        <- Monolink
+
 aa1|c1
+
 aa1|c1
 
 ### Prerequisites
