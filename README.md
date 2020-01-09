@@ -14,9 +14,15 @@ Run the following command to install the XLMTools and Jwalk modules:
 python setup.py install
 ```
 
-To run please copy the [xlmtools.v1.0.py](xlmtools.v1.0.py) script into the folder containing either pdb structures to generate Depth and/or Jwalk result files or the Depth/Jwalk files themselves. 
+The setup.py script will install the relevant modules and set up 3 aliases in your ~/.bashrc:
 
-Flags can be listed by running python xlmtools.v1.0.py -h, which will show the below help message:
+DEPTH - The DEPTH algorithm for calculating residue depth, this in an external software from the Computational and Structural Biology Lab at Pune. Please note this program may not work on all OS, see http://cospi.iiserpune.ac.in/depth/htdocs/download.html for details.
+
+jwalk - To the Jwalk.v2.1.py script for running Jwalk
+
+xlm - To the xlmtools.v1.0.py script for running XLM-Tools
+
+Flags can be listed by running xlm -h, which will show the below help message:
 
 XLM Tools tools: A tool to score model protein structures according to
 crosslink and monolink data.
@@ -86,8 +92,6 @@ Scipy
 Numpy
 
 Biopython
-
-DEPTH - Install from [http://cospi.iiserpune.ac.in/depth/htdocs/download.html](http://cospi.iiserpune.ac.in/depth/htdocs/download.html). Either set up an alias named "DEPTH" to the program or specify the path to your source using the -depth_source flag. Note: may not work on all OS, see website for details.
 
 ## Authors
 
