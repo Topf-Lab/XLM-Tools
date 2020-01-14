@@ -210,18 +210,23 @@ def process_input_crosslinks(uv_xl):
                 chain2 = col[3].rstrip()
                 chain2 = chain2.lstrip()
             except:
-                print("ERROR: formatting error on line "+str(count)+" : "+line)
-                exit(1)
+                if len(col) == 2:
+                    chain1 = "mono"
+                    chain2 = "mono"
+                elif '|' not in line:
+                    print("ERROR: formatting error on line "+str(count)+" : "+line)
+                    exit(1)
             # if no chain is given
-            if len(chain1) == 0:
-                chain1 = " "
-            if len(chain2) == 0:
-                chain2 = " "
+            if chain1 != "mono" or chain2 != "mono":
+                if len(chain1) == 0:
+                    chain1 = " "
+                if len(chain2) == 0:
+                    chain2 = " "
 
-            aa1.append([int(col[0]),chain1])
-            aa2.append([int(col[2]),chain2])
+                aa1.append([int(col[0]),chain1])
+                aa2.append([int(col[2]),chain2])
 
-            crosslink_pairs.append([(int(col[0]),chain1),(int(col[2]),chain2)])
+                crosslink_pairs.append([(int(col[0]),chain1),(int(col[2]),chain2)])
             '''
             if (int(col[0]),chain1,c) in xl_pair:
                 c +=1
