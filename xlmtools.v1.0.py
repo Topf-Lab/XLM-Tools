@@ -6,6 +6,24 @@ import subprocess as sp
 import Jwalk.RunJwalk as rj
 from multiprocessing import cpu_count
 
+def run_depth(pdbs,depth_source='DEPTH'):
+    try:
+        os.mkdir("depth_files")
+    except:
+        pass
+
+    try:
+        for pdb in pdbs:
+            cmd = [depth_source,"-i",pdb,"-o","depth_files/%s" % pdb.split(".pdb")[0]]
+            sp.call(cmd)
+            #test to see if file created, if not will give error
+            with open("depth_files/%s-residue.depth" % pdb.split(".pdb")[0]) as f:
+                f.close()
+    except:
+        print("Residue depth calculation failed. Please check DEPTH installation or specify depth source (see help, -h flag).")
+        print("Please note residue depth calculation may not work on all OS. Please see http://cospi.iiserpune.ac.in/depth/htdocs/download.html for details.")
+        sys.exit(0)
+
 jwalk_files = []
 depth_files = []
 sep = "\t"
@@ -85,8 +103,8 @@ if args.depth:
     else:
         depth_source = 'DEPTH'
         
-    run_depth(pdb_list,depth_source)
-    depth_files = [i for i in os.listdir('depth_files') if i.endswith("-residue.depth")]
+    run_depth(pdb_list)
+    depth_files = ["depth_files/%s" % i for i in os.listdir('depth_files') if i.endswith("-residue.depth")]
 
 if args.depth_files:
     depth_files = args.depth_files
@@ -116,7 +134,7 @@ class Reference:
         self.jwalk_files = jwalk_files
         self.depth_files = depth_files
 
-        self.results = {i.split('_crosslink')[0]:{} for i in jwalk_files}
+        self.results = {i.split('_crosslink')[0].split('/')[-1]:{} for i in jwalk_files}
 
         #opens xl_list, parses for xl/ml
         with open(xl_list) as f:
@@ -191,8 +209,12 @@ class Reference:
             if self.depth_files and self.jwalk_files:
                 for j in self.jwalk_files:
                     jwalk = j
-                    depth = "%s-residue.depth" % j.split('_crosslink')[0]
+                    if jwalk.startswith("Jwalk_results"):
+                        depth = "depth_files/%s-residue.depth" % j.split('_crosslink')[0].split('/')[-1]
+                    else:
+                        depth = "%s-residue.depth" % j.split('_crosslink')[0]
                     self.mnxl_only(jwalk)
+                    print(self.results)
                     self.mods_only(depth)
             elif not self.depth_files:
                 raise Exception("Depth files missing, please specify path.")
@@ -223,15 +245,16 @@ class Reference:
             model.generate_totals()
 
         if self.complex == 0:
-            self.results[m.split('_crosslink_list.txt')[0]].update({'MNXL':model.MNXL, 'Matched':model.number_of_matched, 'NoV':model.number_of_violations, 'NoNA':model.number_of_non_access})
+            self.results[m.split('_crosslink_list.txt')[0].split('/')[-1]].update({'MNXL':model.MNXL, 'Matched':model.number_of_matched, 'NoV':model.number_of_violations, 'NoNA':model.number_of_non_access})
         else:
-            self.results[m.split('_crosslink_list.txt')[0]].update({'cMNXL':model.cMNXL, 'Matched':model.number_of_matched, 'NoV':model.number_of_violations, 'NoNA':model.number_of_non_access})
+            self.results[m.split('_crosslink_list.txt')[0].split('/')[-1]].update({'cMNXL':model.cMNXL, 'Matched':model.number_of_matched, 'NoV':model.number_of_violations, 'NoNA':model.number_of_non_access})
 
     def mods_only(self, file):
+        print(file)
         model = MoDS.Depth(file)
         model.load_monolinks()
         model.score_mono(self)
-        self.results[file.split('-')[0]].update({'MoDS':model.mods})
+        self.results[file.split('-residue.depth')[0].split('/')[-1]].update({'MoDS':model.mods})
 
     def score_xlmo(self):
 
@@ -275,23 +298,7 @@ class Reference:
                 
 
 
-def run_depth(pdbs,depth_source='DEPTH'):
-    try:
-        os.mkdir("depth_files")
-    except:
-        pass
 
-    try:
-        for pdb in pdbs:
-            cmd = [depth_source,"-i",pdb,"-o","depth_files/%s" % pdb.split(".pdb")[0]]
-            sp.call(cmd)
-            #test to see if file created, if not will give error
-            with open("%s-residue.depth" % pdb.split(".pdb")[0]) as f:
-                f.close()
-    except:
-        print("Residue depth calculation failed. Please check DEPTH installation or specify depth source (see help, -h flag).")
-        print("Please note residue depth calculation may not work on all OS. Please see http://cospi.iiserpune.ac.in/depth/htdocs/download.html for details.")
-        sys.exit(0)
 
 
 ######################################################
