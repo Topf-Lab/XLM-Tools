@@ -109,7 +109,7 @@ This project is licensed under the GNU GPL v3.0 License - see the [LICENSE](LICE
 
 If this software is used please cite:
 ```
-citation
+Sinnott et al., Combining Information from Corsslinks and Monolinks in the Modeling of Protein Structures, Sturcture (2020), https://doi.org/10/1016/j.str.2020.05.012
 ```
 
 ## Acknowledgments
