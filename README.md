@@ -4,7 +4,7 @@ An integrated tool to score model PDB structures based on crosslink and monolink
 
 Scoring for Crosslinks is performed using MNXL and Monolinks are scored by MoDS. If both crosslinks and monolinks are being scored the combination score XLMO is calculated.
 
-Information on these scores can be found in [publication citation here].
+Information on these scores can be found in Sinnott et al., Combining Information from Crosslinks and Monolinks in the Modeling of Protein Structures, Sturcture (2020), https://doi.org/10/1016/j.str.2020.05.012.
 
 ## Getting Started
 
@@ -109,7 +109,7 @@ This project is licensed under the GNU GPL v3.0 License - see the [LICENSE](LICE
 
 If this software is used please cite:
 ```
-Sinnott et al., Combining Information from Corsslinks and Monolinks in the Modeling of Protein Structures, Sturcture (2020), https://doi.org/10/1016/j.str.2020.05.012
+Sinnott et al., Combining Information from Crosslinks and Monolinks in the Modeling of Protein Structures, Sturcture (2020), https://doi.org/10/1016/j.str.2020.05.012
 ```
 
 ## Acknowledgments
