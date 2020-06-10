@@ -77,7 +77,7 @@ if args.jwalk:
         vox = args.vox[0]
     else:
         vox = 1
-    
+
     if args.surface:
         surface = True
     else:
@@ -102,7 +102,7 @@ if args.depth:
         depth_source = args.depth_source[0]
     else:
         depth_source = 'DEPTH'
-        
+
     run_depth(pdb_list)
     depth_files = ["depth_files/%s" % i for i in os.listdir('depth_files') if i.endswith("-residue.depth")]
 
@@ -279,7 +279,7 @@ class Reference:
 
         for name,score,zmn,zmo in zip(names,xlmo_scores, xlmo.zmnxl, xlmo.zmods):
             self.results[name].update({'XLMO':score,'zMNXL':zmn,'zMoDS':zmo})
-            
+
 
     def output_scores(self,name="xlm_scores.txt",sep="\t"):
         with open(name,"w+") as f:
@@ -294,8 +294,8 @@ class Reference:
                 f.write("%s%s%s\n" % (k.split('/')[-1],str(sep),str(sep).join([str(i) for i in values])))
             f.close()
 
-        print("\nScores written to %s. Please cite...." % name)
-                
+        print("\nScores written to %s. Please cite Sinnott et al., Combining Information from Crosslinks and Monolinks in the Modelling of Protein Structures, Structure (2020), https://doi.org/10.1016/j.str.2020.05.012" % name)
+
 
 
 
